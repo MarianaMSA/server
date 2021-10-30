@@ -15,5 +15,11 @@ export class UsersService {
     if (userExists) {
       throw new ConflictException('Email já está cadastrado');
     }
+
+    const suer = await this.db.user.create({
+      data,
+    });
+
+    return userExists;
   }
 }
